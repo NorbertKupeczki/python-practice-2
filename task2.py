@@ -5,10 +5,6 @@ from matplotlib import pyplot as plt
 if __name__ == '__main__':
     nList = [1 << i for i in range(8)]
 
-    # The next two lines are an efficient way of writing
-    # for n in nList:
-    #    Ologn.append(math.log2(n))
-
     O1 = [1 for n in nList]
     Ologn = [math.log2(n) for n in nList]
     On = [n for n in nList]
@@ -16,7 +12,17 @@ if __name__ == '__main__':
     On2 = [n ** 2 for n in nList]
     O2n = [2 ** n for n in nList]
 
-    print("\nComplexity of 2^n:")
+    print("\nComplexity of O(1):")
+    print(O1)
+    print("\nComplexity of O(log(n)):")
+    print(Ologn)
+    print("\nComplexity of O(n):")
+    print(On)
+    print("\nComplexity of O(nlog(n)):")
+    print(Onlogn)
+    print("\nComplexity of O(n^2):")
+    print(On2)
+    print("\nComplexity of O(2^n):")
     print(O2n)
 
     plt.plot(nList, O1, label='O(1)', linewidth=1)
@@ -24,7 +30,7 @@ if __name__ == '__main__':
     plt.plot(nList, On, label='O(n)', linewidth=1)
     plt.plot(nList, Onlogn, label='O(nlog(n))', linewidth=1)
     plt.plot(nList, On2, label='O(n^2)', linewidth=1)
-    # plt.plot(nList, O2n, label='O(2^n)', linewidth=1)  # Can't be clearly shown together with all other data
+    plt.plot(nList, O2n, label='O(2^n)', linewidth=1)  # Can't be clearly shown together with all other data
 
     plt.title('Complexity Plots')
     plt.xlabel('N')
